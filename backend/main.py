@@ -7,8 +7,9 @@ PROJECT_DIRECTORY = os.getenv("PROJECT_DIRECTORY")
 sys.path.insert(1, PROJECT_DIRECTORY)
 
 from flask import Flask, request, jsonify
-
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app)
 
 from langchain_core.messages import HumanMessage
 from choose_philosophy import choose_philosophy
@@ -45,7 +46,11 @@ def getting_ai_response():
     happiness_score = state["happiness_score"]
 
     print("\n### prescription: ", state)
-    return jsonify(last_message,happiness_score), 201
+    data = { 
+            "happiness_score" : happiness_score,
+            "last_message" :last_message
+        } 
+    return jsonify(data), 201
 
 
 if __name__ == '__main__':
