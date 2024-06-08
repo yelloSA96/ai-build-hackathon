@@ -1,3 +1,4 @@
 ai-build-hackathon.code-workspace
 .env
 
+frontend/package-lock.json
