@@ -18,7 +18,7 @@ from prescriber import prescriber
 from happiness import happy_agent
 
 prompt = HumanMessage(content="My foot hurts.", name="human")
-philosopher = "eastern_guru"
+philosopher = "existentialist"
 
 state = {
     "messages": [prompt],

@@ -10,6 +10,7 @@ sys.path.insert(1, PROJECT_DIRECTORY)
 
 from eastern_guru import eastern_guru
 from stoic_tutor import stoic_tutor
+from existentialist import existentialist
 
 def choose_philosophy(state):
     input = state["messages"]
