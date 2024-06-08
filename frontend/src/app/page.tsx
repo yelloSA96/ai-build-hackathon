@@ -113,6 +113,8 @@ export default function Home() {
   let input_value=input_1.split(",")
    //category=input_value[0]
    content_value="User Selected: "+category + "\n Question:"+input_value[1]
+   content_value='Selected Philosopher: <span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+category + '</span>\n Question: <span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+input_value[1]+'</span>'
+  
   addMessage({ role: "user", content: content_value, id: chatId });
       //console.log(requestOptions)
       console.log(input)
@@ -135,9 +137,15 @@ export default function Home() {
      let {happiness_score,last_message} =await response.json()
      console.log(happiness_score)
      console.log(last_message)
-     let message_value='Thanks, Your Happiness Score is:<span style="color: #2ecc71 font-size:50px;">'+happiness_score+ "% </span>."+last_message+'```2'
+     if (happiness_score.length >3){
+      let message_value='Thanks, Your Happiness Score is:<span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+happiness_score+ " </span>."+last_message+'```2'
       
       addMessage({ role: "assistant", content: message_value, id: chatId });
+     }else{
+     let message_value='Thanks, Your Happiness Score is:<span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+happiness_score+ "% </span>."+last_message+'```2'
+      
+      addMessage({ role: "assistant", content: message_value, id: chatId });
+     }
       setLoadingSubmit(false);
       setInput("");
 }
@@ -150,7 +158,7 @@ export default function Home() {
     let input_1 = category+","+input
     let input_value=input_1.split(",")
      //category=input_value[0]
-     content_value="User Selected: "+category + "\n Question:"+input_value[1]
+     content_value='Selected Philosopher: <span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+category + '</span>\n Question: <span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+input_value[1]+'</span>'
     addMessage({ role: "user", content: content_value, id: chatId });
     setInput("");
 
