@@ -1,6 +1,6 @@
 # Pocket Philosopher
 
-![Project Image](Pocket_Philosopher.png)
+![Project Image](Pocket_Philosopher.jpg)
 
 ## Overview
 
