@@ -11,8 +11,10 @@ sys.path.insert(1, PROJECT_DIRECTORY)
 from eastern_guru import eastern_guru
 from stoic_tutor import stoic_tutor
 
+def choose_philosophy(state):
+    input = state["messages"]
+    philosophy = state["philosopher"]
 
-def choose_philosophy(input: str, philosophy: str):
     if philosophy == "eastern_guru":
         response = eastern_guru(input)
     elif philosophy == "stoic_tutor":

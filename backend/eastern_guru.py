@@ -13,11 +13,8 @@ from langchain_cohere import ChatCohere
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage
 
-
-
-def eastern_guru(input: str):
-    
-    prompt = HumanMessage(content=input, name="human")
+def eastern_guru(state):
+    prompt = state["messages"][-1]
     
     system_prompt_old = (
         "# ROLE: You are a guru from the far east who has been living on a mountain top for the last several "
@@ -82,8 +79,18 @@ def eastern_guru(input: str):
     guru_output = guru_chain.invoke({"messages": [prompt]})
     
     # Wrap the rewritten prompt in a HumanMessage object for standardized handling
+    state["messages"] = HumanMessage(content=guru_output, name="guru")
  
-    return guru_output
+    return state
 
+'''
+prompt = HumanMessage(content="My foot hurts.", name="human")
+philosopher = "eastern_guru"
 
-#print(guru("Hi, I'm feeling sad."))
+state = {
+    "messages": [prompt],
+    "philosopher": philosopher,
+}
+print(state)
+print(eastern_guru(state))
+'''

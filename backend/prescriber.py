@@ -16,9 +16,9 @@ from langchain_core.messages import HumanMessage
 
 
 
-def prescriber(input: str):
+def prescriber(state):
     
-    prompt = HumanMessage(content=input, name="human")
+    messages = state["messages"]
     
     system_prompt = (
         "# ROLE: You are an expert at prescribing treatments. \n\n"
@@ -47,10 +47,11 @@ def prescriber(input: str):
  
     prescriber_chain = prescriber_prompt | llm | output_parser
 
-    prescriber_output = prescriber_chain.invoke({"messages": [prompt]})
+    prescriber_output = prescriber_chain.invoke({"messages": messages})
     
     # Wrap the rewritten prompt in a HumanMessage object for standardized handling
- 
-    return prescriber_output
+    state["messages"] = HumanMessage(content=prescriber_output, name="prescriber")
+
+    return state
 
 #print(prescriber("You have a broken foot."))

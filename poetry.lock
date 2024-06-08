@@ -822,6 +822,20 @@ langchain-core = ">=0.2.0,<0.3.0"
 extended-testing = ["beautifulsoup4 (>=4.12.3,<5.0.0)", "lxml (>=4.9.3,<6.0)"]
 
 [[package]]
+name = "langgraph"
+version = "0.0.65"
+description = "langgraph"
+optional = false
+python-versions = "<4.0,>=3.9.0"
+files = [
+    {file = "langgraph-0.0.65-py3-none-any.whl", hash = "sha256:f058e09e3ce1edb5bdd3d61df75ad8f2ac98735f5ca0f1dd82c9b38cd7d6ce64"},
+    {file = "langgraph-0.0.65.tar.gz", hash = "sha256:86bbfe4affaf919b50ba4ca89421eebeae3d0ba3b2eb0bf9d918ac3a7ee9be2f"},
+]
+
+[package.dependencies]
+langchain-core = ">=0.2,<0.3"
+
+[[package]]
 name = "langsmith"
 version = "0.1.75"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
@@ -1716,4 +1730,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "78a0e2da239e013c0b702d9a81b86b47ebb83093a42c518472aed949dc4954ef"
+content-hash = "7b8aaca3d46592c9539eee34b14dbe1f82e17579a14f128e55f62a3928ca26b3"

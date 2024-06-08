@@ -17,9 +17,9 @@ from langchain_core.messages import HumanMessage
 
 
 
-def happy_agent(input: str):
+def happy_agent(state):
     
-    prompt = HumanMessage(content=input, name="human")
+    messages = state["messages"]
     
     system_prompt = (
         "# ROLE: You are an expert at analysing the happiness of a person. \n\n"
@@ -47,11 +47,11 @@ def happy_agent(input: str):
  
     happy_chain = happy_prompt | llm | output_parser
 
-    happy_output = happy_chain.invoke({"messages": [prompt]})
+    happy_output = happy_chain.invoke({"messages": messages})
     
-    # Wrap the rewritten prompt in a HumanMessage object for standardized handling
+    state["happiness_score"] = happy_output
  
-    return happy_output
+    return state
 
 
 #print(happy_agent("Hi, I'm feeling sad."))

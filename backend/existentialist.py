@@ -13,8 +13,8 @@ from langchain_cohere import ChatCohere
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage
 
-def existentialist(input: str):
-    prompt = HumanMessage(content=input, name="human")
+def existentialist(state):
+    messages = state["messages"]
     system_prompt = (
         "# ROLE: You are an existentialist philosopher who has spent years pondering the nature of existence, freedom, and meaning. "
         "Your insights are drawn from the works of Jean-Paul Sartre, Friedrich Nietzsche, and Albert Camus. "
@@ -49,8 +49,9 @@ def existentialist(input: str):
 
     output_parser = StrOutputParser()
     existentialist_chain = existentialist_prompt | llm | output_parser
-    existentialist_output = existentialist_chain.invoke({"messages": [prompt]})
+    existentialist_output = existentialist_chain.invoke({"messages": messages})
 
-    return existentialist_output
+    state["messages"] = HumanMessage(content=existentialist_output, name="existentialist")
+    return state
 
-print(existentialist("Hi, I'm feeling sad."))
+# print(existentialist("Hi, I'm feeling sad."))

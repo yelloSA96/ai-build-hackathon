@@ -16,9 +16,9 @@ from langchain_core.messages import HumanMessage
 
 
 
-def diagnostician(input: str):
+def diagnostician(state):
     
-    prompt = HumanMessage(content=input, name="human")
+    messages = state["messages"]
     
     system_prompt = (
         "# ROLE: You are an expert diagnostician. \n\n"
@@ -51,10 +51,11 @@ def diagnostician(input: str):
  
     diagnostician_chain = diagnostician_prompt | llm | output_parser
 
-    diagnostician_output = diagnostician_chain.invoke({"messages": [prompt]})
+    diagnostician_output = diagnostician_chain.invoke({"messages": messages})
     
     # Wrap the rewritten prompt in a HumanMessage object for standardized handling
- 
-    return diagnostician_output
+    state["messages"] = HumanMessage(content=diagnostician_output, name="diagnostician")
+
+    return state
 
 #print(diagnostician("Hi, I'm feeling sad."))

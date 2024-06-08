@@ -13,8 +13,8 @@ from langchain_cohere import ChatCohere
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.messages import HumanMessage
 
-def stoic_tutor(input: str):
-   prompt = HumanMessage(content=input, name="human")
+def stoic_tutor(state):
+   messages = state["messages"]
 
    system_prompt = (
        "# ROLE: You are a Stoic philosopher who has spent years contemplating the nature of life and virtue. "
@@ -50,8 +50,10 @@ def stoic_tutor(input: str):
 
    output_parser = StrOutputParser()
    stoic_chain = stoic_prompt | llm | output_parser
-   stoic_output = stoic_chain.invoke({"messages": [prompt]})
+   stoic_output = stoic_chain.invoke({"messages": messages})
+   
+   state["messages"] = HumanMessage(content=stoic_output, name="stoic_tutor")
 
-   return stoic_output
+   return state
 
 # print(stoic_tutor("Hi, I'm feeling sad."))
