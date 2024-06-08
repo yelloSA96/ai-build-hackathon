@@ -6,6 +6,8 @@
 
 Pocket Philosopher is a unique application that allows users to chat with virtual philosophers about their ailments and life questions. The app leverages AI models to provide advice rooted in Stoic, Existentialist, and Eastern philosophies.
 
+<iframe width="1905" height="799" src="https://www.youtube.com/embed/G57W2IP7FFc" title="Pocket Philosopher" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Features
 
 - Chat with virtual philosophers: Stoic Tutor, Existentialist, and Eastern Guru.
