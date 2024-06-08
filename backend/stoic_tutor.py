@@ -52,7 +52,7 @@ def stoic_tutor(state):
    stoic_chain = stoic_prompt | llm | output_parser
    stoic_output = stoic_chain.invoke({"messages": messages})
    
-   state["messages"] = HumanMessage(content=stoic_output, name="stoic_tutor")
+   state["messages"].append(HumanMessage(content=stoic_output, name="stoic_tutor"))
 
    return state
 

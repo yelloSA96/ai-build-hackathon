@@ -79,7 +79,7 @@ def eastern_guru(state):
     guru_output = guru_chain.invoke({"messages": [prompt]})
     
     # Wrap the rewritten prompt in a HumanMessage object for standardized handling
-    state["messages"] = HumanMessage(content=guru_output, name="guru")
+    state["messages"].append(HumanMessage(content=guru_output, name="guru"))
  
     return state
 

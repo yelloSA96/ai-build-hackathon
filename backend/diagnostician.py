@@ -54,7 +54,7 @@ def diagnostician(state):
     diagnostician_output = diagnostician_chain.invoke({"messages": messages})
     
     # Wrap the rewritten prompt in a HumanMessage object for standardized handling
-    state["messages"] = HumanMessage(content=diagnostician_output, name="diagnostician")
+    state["messages"].append(HumanMessage(content=diagnostician_output, name="diagnostician"))
 
     return state
 

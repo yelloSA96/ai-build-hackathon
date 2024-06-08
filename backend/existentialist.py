@@ -51,7 +51,7 @@ def existentialist(state):
     existentialist_chain = existentialist_prompt | llm | output_parser
     existentialist_output = existentialist_chain.invoke({"messages": messages})
 
-    state["messages"] = HumanMessage(content=existentialist_output, name="existentialist")
+    state["messages"].append(HumanMessage(content=existentialist_output, name="existentialist"))
     return state
 
 # print(existentialist("Hi, I'm feeling sad."))

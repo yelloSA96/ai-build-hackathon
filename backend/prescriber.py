@@ -50,7 +50,7 @@ def prescriber(state):
     prescriber_output = prescriber_chain.invoke({"messages": messages})
     
     # Wrap the rewritten prompt in a HumanMessage object for standardized handling
-    state["messages"] = HumanMessage(content=prescriber_output, name="prescriber")
+    state["messages"].append(HumanMessage(content=prescriber_output, name="prescriber"))
 
     return state
 
