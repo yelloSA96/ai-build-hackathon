@@ -14,6 +14,7 @@ import './styles.css'
 import * as RadioGroup from '@radix-ui/react-radio-group';
 import { Label } from "@radix-ui/react-label";
 export default function ChatBottombar({
+ chatId,
   messages,
   input,
   handleInputChange,
@@ -33,16 +34,23 @@ export default function ChatBottombar({
       handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
     }
   };
+  const [value, setValue] = React.useState(localStorage.getItem(`category`) || 'eastern_guru');
+// Update localStorage whenever the radio value changes
+useEffect(() => {
 
+  localStorage.setItem(`category`, value);//JSON.stringify(value));
+}, [value]);
 
   const [result, setResult] = React.useState<{ category: string | null }>({
     category: null
   });
-  const onSubmit = (data: { category: string }) => {
-    setResult(data);
+  const onSubmitRadio = (data: { category: string }) => {
     console.log(data);
+    setValue(category);
+    console.log(data);
+    return category;
   };
-  const [value, setValue] = React.useState("eastern_guru");
+
   return (
     <div className="p-4 flex justify-between w-full items-center gap-2">
       <form
@@ -74,7 +82,7 @@ export default function ChatBottombar({
         </tr>
         <tr>
         <div  className="flex-column">
-    <RadioGroup.Root className="RadioGroupRoot" defaultValue="eastern_guru" aria-label="View density"  onValueChange={setValue}>
+    <RadioGroup.Root className="RadioGroupRoot" defaultValue="eastern_guru" aria-label="View density"  onValueChange={(newValue) => setValue(newValue)} >
       <div className='flex center'>
         <RadioGroup.Item className="RadioGroupItem" value="eastern_guru" id="r1">
           <RadioGroup.Indicator className="RadioGroupIndicator" />
@@ -84,7 +92,7 @@ export default function ChatBottombar({
         </Label>
       </div>
       <div className='flex center'>
-        <RadioGroup.Item className="RadioGroupItem" value=" toic_tutor" id="r2">
+        <RadioGroup.Item className="RadioGroupItem" value="stoic_tutor" id="r2">
           <RadioGroup.Indicator className="RadioGroupIndicator" />
         </RadioGroup.Item>
         <label className="Label" htmlFor="r2">

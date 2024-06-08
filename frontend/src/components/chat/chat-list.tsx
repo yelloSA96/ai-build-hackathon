@@ -51,7 +51,7 @@ export default function ChatList({
             height={60}
             className="h-20 w-14 object-contain dark:invert"
           />
-          <p className="text-center text-lg text-muted-foreground">
+          <p className="text-center text-lg text-muted-foreground text-blue-600">
             How can I help you today?
           </p>
         </div>
@@ -62,9 +62,9 @@ export default function ChatList({
   return (
     <div
       id="scroller"
-      className="w-full overflow-y-scroll overflow-x-hidden h-full justify-end"
+      className="w-full overflow-y-scroll overflow-x-hidden h-full justify-end "
     >
-      <div className="w-full flex flex-col overflow-x-hidden overflow-y-hidden min-h-full justify-end">
+      <div className="w-full flex flex-col overflow-x-hidden overflow-y-hidden min-h-full justify-end ">
       {messages.map((message, index) => (
           <motion.div
             key={index}
@@ -87,12 +87,12 @@ export default function ChatList({
           >
             <div className="flex gap-3 items-center">
               {message.role === "user" && (
-                <div className="flex items-end gap-3">
+                <div className="flex items-end gap-3 bg-blue-400">
                   {/* <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl overflow-x-auto">
                     {(message.content)}
                   </span> */}
 
-                  <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl overflow-x-auto" dangerouslySetInnerHTML={{ __html: marked.parse(message.content) }} />
+                  <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl overflow-x-auto bg-purple-300" dangerouslySetInnerHTML={{ __html: marked.parse(message.content) }} />
 
                   <Avatar className="flex justify-start items-center overflow-hidden">
                     <AvatarImage
@@ -109,7 +109,7 @@ export default function ChatList({
                 </div>
               )}
               {message.role === "assistant" && (
-                <div className="flex items-end gap-2">
+                <div className="flex items-end gap-2 bg-orange-300">
                   <Avatar className="flex justify-start items-center">
                     <AvatarImage
                       src="/aabc_masters.png"
@@ -119,20 +119,23 @@ export default function ChatList({
                       className="object-contain dark:invert"
                     />
                   </Avatar>
-                  <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl overflow-x-auto">
+                  <span className="bg-accent p-3 rounded-md max-w-xs sm:max-w-2xl overflow-x-auto bg-violet-200">
                     {/* Check if the message content contains a code block */}
-                    
+           
                     {(message.content).split("```").map((part, index) => {
                       if (index % 2 === 0) {
+                      
                         return (
                           // <React.Fragment key={index}>{part}</React.Fragment>
                           <span key={index} dangerouslySetInnerHTML={{ __html: marked.parse(part) }} />
                         );
                       } else {
+                       
                         return (
-                          <pre className="whitespace-pre-wrap" key={index}>
-                            <CodeDisplayBlock code={part} lang="" />
-                          </pre>
+                          <span key={index} dangerouslySetInnerHTML={{ __html: marked.parse(part) }} />
+                        //  <pre className="whitespace-pre-wrap" key={index}>
+                         //   <CodeDisplayBlock code={part} lang="" />
+                         // </pre>
                         );
                       }
                     })}

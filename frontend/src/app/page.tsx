@@ -60,7 +60,16 @@ export default function Home() {
   const myValues = ['Eastern Guru', 'Stoic Tutor', 'Existentialist'] as const
   type myType = typeof myValues[number]
   let category:myType = myValues[myValues.length * Math.random() | 0] 
+  
+  let category_value=localStorage.getItem(`category`) 
+  if (category_value== "eastern_guru"){
+    category=myValues[0]
+  }else if (category_value== "stoic_tutor"){
+    category=myValues[1]
 
+  }else{
+    category=myValues[2]
+  }
   //let category="Eastern Guru"
   let content_value=input
   
@@ -120,6 +129,7 @@ export default function Home() {
       console.log(input)
       console.log(content_value)
       //console.log(use)
+      setInput("");
       const data = {"philosopher":category,"human_query":input_value[1]}
       const url = 'http://localhost:8080/api';
      // const { data, isValidating } =await useOwnModelTrigger();
@@ -138,11 +148,11 @@ export default function Home() {
      console.log(happiness_score)
      console.log(last_message)
      if (happiness_score.length >3){
-      let message_value='Thanks, Your Happiness Score is:<span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+happiness_score+ " </span>."+last_message+'```2'
+      let message_value='Thanks, Your Happiness Score is:<span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+happiness_score+ " </span>."+last_message+'```'
       
       addMessage({ role: "assistant", content: message_value, id: chatId });
      }else{
-     let message_value='Thanks, Your Happiness Score is:<span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+happiness_score+ "% </span>."+last_message+'```2'
+     let message_value='Thanks, Your Happiness Score is:<span style="color: #2ecc71 font-size:50px;font-weight:bold;">'+happiness_score+ "% </span>."+last_message+'```'
       
       addMessage({ role: "assistant", content: message_value, id: chatId });
      }

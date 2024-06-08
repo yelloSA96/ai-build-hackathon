@@ -44,8 +44,9 @@ button {
 }
 
 .Label {
-  color: rgb(18, 237, 149);
-  font-size: 15px;
+  color: rgb(238, 25, 227);
+  font-size: 20px;
+  font-weight: bolder;
   line-height: 1;
   padding-left: 15px;
 }

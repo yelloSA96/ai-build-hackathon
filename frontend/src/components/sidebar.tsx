@@ -80,10 +80,12 @@ export function Sidebar({
 
     // Map through the chats and return an object with chatId and messages
     const chatObjects = chats.map((chat) => {
+      if (chat.startsWith("chat_")){
       const item = localStorage.getItem(chat);
       return item
         ? { chatId: chat, messages: JSON.parse(item) }
         : { chatId: "", messages: [] };
+      }
     });
 
     // Sort chats by the createdAt date of the first message of each chat
@@ -107,7 +109,7 @@ export function Sidebar({
       data-collapsed={isCollapsed}
       className="relative justify-between group lg:bg-accent/20 lg:dark:bg-card/35 flex flex-col h-full gap-4 p-2 data-[collapsed=true]:p-2 "
     >
-      <div className=" flex flex-col justify-between p-2 max-h-fit overflow-y-auto">
+      <div className=" flex flex-col justify-between p-2 max-h-fit overflow-y-auto bg-gradient-to-r from-green-400 to-blue-500">
         <Button
           onClick={() => {
             router.push("/");
@@ -206,7 +208,7 @@ export function Sidebar({
         </div>
       </div>
 
-      <div className="justify-end px-2 py-2 w-full border-t">
+      <div className="justify-end px-2 py-2 w-full border-t bg-gradient-to-r from-indigo-500">
         <UserSettings />
       </div>
     </div>

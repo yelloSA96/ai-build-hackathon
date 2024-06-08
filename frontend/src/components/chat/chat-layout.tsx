@@ -61,6 +61,7 @@ export function ChatLayout({
   }, []);
 
   return (
+    
     <ResizablePanelGroup
       direction="horizontal"
       onLayout={(sizes: number[]) => {

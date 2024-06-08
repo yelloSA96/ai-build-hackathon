@@ -27,7 +27,7 @@ export default function Chat ({ messages, input, handleInputChange, handleSubmit
   const { setMessages } = useChat();
 
   return (
-    <div className="flex flex-col justify-between w-full h-full  ">
+    <div className="flex flex-col justify-between w-full h-full bg-[url('/background.png')] ">
         <ChatTopbar setSelectedModel={setSelectedModel} isLoading={isLoading}
         chatId={chatId} messages={messages} />
 
@@ -45,6 +45,7 @@ export default function Chat ({ messages, input, handleInputChange, handleSubmit
         />
 
         <ChatBottombar 
+        chatId={chatId}
           setSelectedModel={setSelectedModel}
           messages={messages}
           input={input}
