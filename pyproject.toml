@@ -12,6 +12,8 @@ langchain = "^0.2.3"
 langchain-cohere = "^0.1.5"
 python-dotenv = "^1.0.1"
 langgraph = "^0.0.65"
+flask = "^3.0.3"
+flask-cors = "^4.0.1"
 
 
 [build-system]

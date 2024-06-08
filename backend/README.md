@@ -22,6 +22,7 @@ COHERE_API_KEY = "<your-api-key>"
 PROJECT_DIRECTORY = "<path-to-your-project-directory>"
 ```
 Replace `<your-api-key>` with your Cohere API key and `<path-to-your-project-directory>` with the path to the backend directory.  
+Cohere API is being used for testing purposes only.
 
 ## Running the Application
 Activate the Poetry environment by running poetry shell.
