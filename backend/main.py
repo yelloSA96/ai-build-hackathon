@@ -17,7 +17,7 @@ from diagnostician import diagnostician
 from prescriber import prescriber
 from happiness import happy_agent
 
-prompt = HumanMessage(content="My foot hurts.", name="human")
+prompt = HumanMessage(content="I think I've had enough", name="human")
 philosopher = "existentialist"
 
 state = {
