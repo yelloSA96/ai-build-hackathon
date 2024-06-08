@@ -8,7 +8,7 @@ PROJECT_DIRECTORY = os.getenv("PROJECT_DIRECTORY")
 sys.path.insert(1, PROJECT_DIRECTORY)
 
 from langchain_core.messages import HumanMessage
-from state import State
+# from state import State
 from choose_philosophy import choose_philosophy
 from eastern_guru import eastern_guru
 from stoic_tutor import stoic_tutor
