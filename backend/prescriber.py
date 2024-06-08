@@ -53,4 +53,4 @@ def prescriber(input: str):
  
     return prescriber_output
 
-print(prescriber("You have a broken foot."))
+#print(prescriber("You have a broken foot."))

@@ -15,7 +15,7 @@ from langchain_core.messages import HumanMessage
 
 
 
-def guru(input: str):
+def eastern_guru(input: str):
     
     prompt = HumanMessage(content=input, name="human")
     
@@ -60,4 +60,4 @@ def guru(input: str):
     return guru_output
 
 
-print(guru("Hi, I'm feeling sad."))
+#print(guru("Hi, I'm feeling sad."))

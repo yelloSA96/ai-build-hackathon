@@ -57,4 +57,4 @@ def diagnostician(input: str):
  
     return diagnostician_output
 
-print(diagnostician("Hi, I'm feeling sad."))
+#print(diagnostician("Hi, I'm feeling sad."))

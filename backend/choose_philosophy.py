@@ -1,13 +1,24 @@
 """Function for choosing a philosophy for the human to interact with."""
+import sys
+import os
+from dotenv import load_dotenv
+
+load_dotenv(".env")
+
+PROJECT_DIRECTORY = os.getenv("PROJECT_DIRECTORY")
+sys.path.insert(1, PROJECT_DIRECTORY)
+
+from eastern_guru import eastern_guru
+
 
 def choose_philosophy(input: str, philosophy: str):
     if philosophy == "eastern_guru":
-        eastern_guru(input)
+        response = eastern_guru(input)
     elif philosophy == "stoic":
-        stoic(input)
+        response = stoic(input)
     elif philosophy == "existentialist":
-        existentialist(input)
+        response = existentialist(input)
     else:
         print("ERROR: Invalid philosophy.")
 
-    return
+    return response
