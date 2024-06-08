@@ -6,7 +6,8 @@
 
 Pocket Philosopher is a unique application that allows users to chat with virtual philosophers about their ailments and life questions. The app leverages AI models to provide advice rooted in Stoic, Existentialist, and Eastern philosophies.
 
-[![Watch the video](https://img.youtube.com/vi/G57W2IP7FFc/maxresdefault.jpg)](https://youtu.be/G57W2IP7FFc)
+### Introductory Video
+[![Watch the video](https://img.youtube.com/vi/G57W2IP7FFc/hqdefault.jpg)](https://youtu.be/G57W2IP7FFc)
 
 ## Features
 
