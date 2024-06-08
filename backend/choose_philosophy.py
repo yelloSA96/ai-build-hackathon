@@ -16,11 +16,11 @@ def choose_philosophy(state):
     philosophy = state["philosopher"]
 
     if philosophy == "eastern_guru":
-        response = eastern_guru(input)
+        response = eastern_guru(state)
     elif philosophy == "stoic_tutor":
-        response = stoic_tutor(input)
+        response = stoic_tutor(state)
     elif philosophy == "existentialist":
-        response = existentialist(input)
+        response = existentialist(state)
     else:
         print("ERROR: Invalid philosophy.")
 
