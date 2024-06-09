@@ -26,7 +26,7 @@ def happy_agent(state):
         "# TASK: You will be presented with a conversation between a human and their philosopher. "
         " Your job is to analyse the conversation and rate the humans happiness.\n\n"
         "# NOTES:\n"
-        " - Always return a numerical value."
+        " - Always return a numerical value with maximum of 100."
         " - Whole numbers only."
         " - Negative values are sad."
         " - Positive values are happy."
